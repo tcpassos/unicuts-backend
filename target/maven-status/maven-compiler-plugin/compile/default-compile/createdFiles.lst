@@ -1,4 +1,8 @@
-unicuts\JpaConfig.class
-unicuts\usuario\Usuario.class
+unicuts\cidade\Cidade.class
+unicuts\cliente\Cliente.class
+unicuts\cliente\ClienteRepository.class
+unicuts\cliente\UsuarioController.class
 unicuts\UnicutsBackendApplication.class
-unicuts\usuario\UsuarioRepository.class
+unicuts\estado\Estado.class
+unicuts\usuario\Usuario.class
+unicuts\endereco\Endereco.class
