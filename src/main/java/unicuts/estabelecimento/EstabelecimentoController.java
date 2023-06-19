@@ -27,8 +27,8 @@ public class EstabelecimentoController {
     ServicoPrestadoMapper servicoPrestadoMapper;
 
     @GetMapping("/all")
-    public List<Estabelecimento> getAll() {
-        return estabelecimentoRepository.findAll();
+    public List<Estabelecimento> getAll(@RequestParam(required = false) Double avaliacaoMinima) {
+        return estabelecimentoRepository.findByMediaAvaliacaoGreaterThanEqual(avaliacaoMinima);
     }
 
     @GetMapping("/{id}")

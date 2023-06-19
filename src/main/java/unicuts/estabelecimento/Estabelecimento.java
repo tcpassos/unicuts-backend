@@ -27,6 +27,9 @@ public class Estabelecimento {
     
     @ManyToOne
     private Gestor gestor;
+    
+    @Column
+    private Double mediaAvaliacao;
 
     public Long getId() {
         return id;
@@ -59,5 +62,13 @@ public class Estabelecimento {
     public void setGestor(Gestor gestor) {
         this.gestor = gestor;
     }
-    
+
+    public Double getMediaAvaliacao() {
+        return mediaAvaliacao;
+    }
+
+    public void setMediaAvaliacao(Double mediaAvaliacao) {
+        this.mediaAvaliacao = mediaAvaliacao;
+    }
+
 }

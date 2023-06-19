@@ -7,6 +7,7 @@ public class EstabelecimentoOutput {
     private Long id;
     private String nome;
     private Endereco endereco;
+    private Double mediaAvaliacao;
 
     public Long getId() {
         return id;
@@ -30,6 +31,14 @@ public class EstabelecimentoOutput {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    public double getMediaAvaliacao() {
+        return mediaAvaliacao;
+    }
+
+    public void setMediaAvaliacao(double mediaAvaliacao) {
+        this.mediaAvaliacao = mediaAvaliacao;
     }
     
 }

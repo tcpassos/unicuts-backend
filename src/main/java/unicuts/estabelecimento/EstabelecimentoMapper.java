@@ -11,7 +11,8 @@ public class EstabelecimentoMapper extends EntityMapper<Estabelecimento, Void, E
         EstabelecimentoOutput output = new EstabelecimentoOutput();
         output.setId(entity.getId());
         output.setNome(entity.getNome());
-        output.setEndereco(entity.getEndereco());        
+        output.setEndereco(entity.getEndereco());
+        output.setMediaAvaliacao(entity.getMediaAvaliacao());
         return output;
     }
 
