@@ -17,7 +17,18 @@ INSERT INTO horariofuncionamento (estabelecimento_id, horario_id) VALUES (1, 1);
 -- Servicos
 INSERT INTO servico (id, descricao) VALUES (1, 'Corte masculino');
 INSERT INTO servico (id, descricao) VALUES (2, 'Corte infantil');
+INSERT INTO servico (id, descricao) VALUES (3, 'Sombrancelha');
+INSERT INTO servico (id, descricao) VALUES (4, 'Unhas');
 
 -- Servicos prestados
 INSERT INTO servicoprestado (estabelecimento_id, servico_id, valor) VALUES (1, 1, 20.0);
 INSERT INTO servicoprestado (estabelecimento_id, servico_id, valor) VALUES (1, 2, 15.0);
+
+INSERT INTO servicoprestado (estabelecimento_id, servico_id, valor) VALUES (2, 1, 20.0);
+
+INSERT INTO servicoprestado (estabelecimento_id, servico_id, valor) VALUES (3, 2, 20.0);
+INSERT INTO servicoprestado (estabelecimento_id, servico_id, valor) VALUES (3, 3, 15.0);
+INSERT INTO servicoprestado (estabelecimento_id, servico_id, valor) VALUES (3, 4, 15.0);
+
+INSERT INTO servicoprestado (estabelecimento_id, servico_id, valor) VALUES (4, 3, 20.0);
+INSERT INTO servicoprestado (estabelecimento_id, servico_id, valor) VALUES (4, 4, 15.0);

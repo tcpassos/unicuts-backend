@@ -1,6 +1,8 @@
 package unicuts.estabelecimento;
 
+import java.util.List;
 import unicuts.endereco.Endereco;
+import unicuts.servicoprestado.ServicoPrestadoOutput;
 
 public class EstabelecimentoOutput {
     
@@ -8,6 +10,7 @@ public class EstabelecimentoOutput {
     private String nome;
     private Endereco endereco;
     private Double mediaAvaliacao;
+    private List<ServicoPrestadoOutput> servicosPrestados;
 
     public Long getId() {
         return id;
@@ -33,12 +36,20 @@ public class EstabelecimentoOutput {
         this.endereco = endereco;
     }
 
-    public double getMediaAvaliacao() {
+    public Double getMediaAvaliacao() {
         return mediaAvaliacao;
     }
 
-    public void setMediaAvaliacao(double mediaAvaliacao) {
+    public void setMediaAvaliacao(Double mediaAvaliacao) {
         this.mediaAvaliacao = mediaAvaliacao;
     }
-    
+
+    public List<ServicoPrestadoOutput> getServicosPrestados() {
+        return servicosPrestados;
+    }
+
+    public void setServicosPrestados(List<ServicoPrestadoOutput> servicosPrestados) {
+        this.servicosPrestados = servicosPrestados;
+    }   
+
 }

@@ -9,12 +9,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/cliente")
-public class UsuarioController {
+public class ClienteController {
 
     private final ClienteRepository clienteRepository;
 
     @Autowired
-    public UsuarioController(ClienteRepository usuarioRepository) {
+    public ClienteController(ClienteRepository usuarioRepository) {
         this.clienteRepository = usuarioRepository;
     }
 

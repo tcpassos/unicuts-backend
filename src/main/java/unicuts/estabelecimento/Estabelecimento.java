@@ -5,11 +5,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import java.util.List;
 import unicuts.endereco.Endereco;
 import unicuts.gestor.Gestor;
+import unicuts.servicoprestado.ServicoPrestado;
 
 @Entity
 @Table(name = "estabelecimento")
@@ -30,6 +33,9 @@ public class Estabelecimento {
     
     @Column
     private Double mediaAvaliacao;
+    
+    @ManyToMany(mappedBy = "estabelecimento")
+    private List<ServicoPrestado> servicosPrestados;
 
     public Long getId() {
         return id;
@@ -69,6 +75,14 @@ public class Estabelecimento {
 
     public void setMediaAvaliacao(Double mediaAvaliacao) {
         this.mediaAvaliacao = mediaAvaliacao;
+    }
+
+    public List<ServicoPrestado> getServicosPrestados() {
+        return servicosPrestados;
+    }
+
+    public void setServicosPrestados(List<ServicoPrestado> servicosPrestados) {
+        this.servicosPrestados = servicosPrestados;
     }
 
 }

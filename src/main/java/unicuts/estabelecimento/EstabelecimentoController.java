@@ -5,7 +5,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
+import org.springframework.util.CollectionUtils;
 import unicuts.horario.Horario;
 import unicuts.horariofuncionamento.HorarioFuncionamento;
 import unicuts.horariofuncionamento.HorarioFuncionamentoRepository;
@@ -20,6 +22,8 @@ public class EstabelecimentoController {
     @Autowired
     EstabelecimentoRepository estabelecimentoRepository;
     @Autowired
+    EstabelecimentoMapper estabelecimentoMapper;
+    @Autowired
     ServicoPrestadoRepository servicoPrestadoRepository;
     @Autowired
     HorarioFuncionamentoRepository horarioFuncionamentoRepository;
@@ -27,8 +31,14 @@ public class EstabelecimentoController {
     ServicoPrestadoMapper servicoPrestadoMapper;
 
     @GetMapping("/all")
-    public List<Estabelecimento> getAll(@RequestParam(required = false) Double avaliacaoMinima) {
-        return estabelecimentoRepository.findByMediaAvaliacaoGreaterThanEqual(avaliacaoMinima);
+    public List<EstabelecimentoOutput> getAll(@RequestParam(required = false) Double avaliacaoMinima, @RequestParam(required = false) List<Long> servico) {
+        List<Estabelecimento> estabelecimentos = Objects.nonNull(avaliacaoMinima) ? estabelecimentoRepository.findByMediaAvaliacaoGreaterThanEqual(avaliacaoMinima)
+                                                                                  : estabelecimentoRepository.findAll();
+        return estabelecimentos.stream()
+                               .filter(estabelecimento -> CollectionUtils.isEmpty(servico) ||
+                                                          CollectionUtils.containsAny(servico, estabelecimento.getServicosPrestados().stream().map(servicoPrestado -> servicoPrestado.getServico().getId()).toList()))
+                               .map(estabelecimento -> estabelecimentoMapper.wrap(estabelecimento))
+                               .toList();
     }
 
     @GetMapping("/{id}")
